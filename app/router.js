@@ -7,6 +7,13 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('documentation');
+  this.route('about');
+  this.route('upload');
+  this.route('photo-analysis', function() {
+    this.route('index', { path: '/' });
+    this.route('animal', { path: ':id' });
+  });
 });
 
 export default Router;

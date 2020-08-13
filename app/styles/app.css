@@ -1,0 +1,122 @@
+@import "ember-modal-dialog/ember-modal-structure.css";
+@import "ember-modal-dialog/ember-modal-appearance.css";
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Buttons */
+.btn {
+  @apply py-2 px-4 rounded;
+}
+
+.btn-primary {
+  @apply text-white font-bold bg-orange-500;
+}
+
+.btn-primary:hover {
+  @apply bg-orange-600;
+}
+
+.btn-secondary {
+  @apply bg-transparent text-orange-600 font-semibold border border-orange-600;
+}
+
+.btn-secondary:hover {
+  @apply bg-orange-600 text-white border-transparent;
+}
+
+.btn-disabled {
+  @apply bg-orange-500 text-white font-bold opacity-50 cursor-not-allowed;
+}
+
+.btn-text {
+  font-family: Fjalla One;
+  text-align: center;
+}
+
+/* Links */
+.link {
+  @apply underline;
+}
+
+.link-about {
+  @apply text-gray-600;
+}
+
+.link-feedback {
+  @apply text-orange-500;
+}
+
+/* Text */
+.text-header--feedback {
+
+}
+
+.text-header--nav {
+
+}
+
+.text-header--analysis {
+  font-family: Fjalla One;
+  @apply text-center text-2xl text-black;
+}
+
+.text--good-characteristics {
+  color: #02BB14;
+}
+
+.text--bad-characteristics {
+  color: #FF0404;
+}
+
+.text--score-percentage {
+  font-family: Fjalla One;
+  @apply text-black text-center;
+}
+
+.text-feedback {
+  @apply text-black;
+}
+
+.text--overall-score {
+  font-family: Fjalla One;
+  @apply uppercase text-black text-center;
+}
+
+/* Photos */
+.logo {
+  width: 115px;
+  height: 119px;
+  border: 0px;
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  border: 0px;
+}
+
+.animal-photo {
+  width: 450px;
+  height: 350px;
+}
+
+.link-text {
+  font-family: Fjalla One;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 25px;
+  text-align: center;
+  text-decoration-line: underline;
+
+  color: #8A8787;
+}
+
+.feedback-box {
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+}
