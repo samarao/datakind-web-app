@@ -1,6 +1,7 @@
 @import "ember-modal-dialog/ember-modal-structure.css";
 @import "ember-modal-dialog/ember-modal-appearance.css";
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -49,18 +50,46 @@
   @apply text-orange-500;
 }
 
-/* Text */
-.text-header--feedback {
+.link-text {
+  line-height: 25px;
+  text-align: center;
 
+  @apply text-gray-600;
+}
+
+/* Text */
+.font-fjalla {
+  font-family: Fjalla One;
+}
+
+.font-roboto {
+  font-family: Roboto;
+}
+
+.text-header--feedback {
+  font-family: Fjalla One;
+  @apply text-black text-center;
 }
 
 .text-header--nav {
-
+  font-family: Fjalla One;
+  @apply text-lg;
 }
 
 .text-header--analysis {
   font-family: Fjalla One;
   @apply text-center text-2xl text-black;
+}
+
+.text-subheader--feedback {
+  font-family: Roboto;
+  font-style: italic;
+  @apply text-gray-600;
+}
+
+.text-answer--feedback {
+  font-family: Roboto;
+  @apply text-orange-500 text-center;
 }
 
 .text--good-characteristics {
@@ -85,6 +114,11 @@
   @apply uppercase text-black text-center;
 }
 
+.text--file-upload {
+  font-family: Roboto;
+  @apply text-center text-gray-600 italic;
+}
+
 /* Photos */
 .logo {
   width: 115px;
@@ -99,20 +133,15 @@
 }
 
 .animal-photo {
-  width: 450px;
-  height: 350px;
+  width: 300px;
+  height: 200;
+  background-size: cover;
 }
 
-.link-text {
-  font-family: Fjalla One;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 25px;
-  text-align: center;
-  text-decoration-line: underline;
-
-  color: #8A8787;
+.animal-photo--large {
+  width: 450px;
+  height: 350px;
+  background-size: cover;
 }
 
 .feedback-box {

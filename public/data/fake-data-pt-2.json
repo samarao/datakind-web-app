@@ -1,0 +1,74 @@
+{
+  "data": [{
+    "id": 1,
+    "animal": {
+      "id": "Peach",
+      "type": "cat"
+    },
+    "image": {
+      "id": "b874e6c1-d71e-4dab-99cf-ace2ef69788b",
+      "path": {
+        "s3_bucket": "shelter-art-foundation",
+        "s3_path": "dev/93523509-4c06-4fc2-aeae-b174074772b5.jpeg",
+        "http_url": "https://shelter-art-foundation.s3.amazonaws.com/dev/93523509-4c06-4fc2-aeae-b174074772b5.jpeg",
+        "s3_url": "s3://shelter-art-foundation/dev/93523509-4c06-4fc2-aeae-b174074772b5.jpeg"
+      }
+    },
+    "analysis": {
+      "overall_score": 3,
+      "good_prop": 1,
+      "bad_prop": 0,
+      "clean_background": 1,
+      "animal_fills_frame": 0,
+      "some_space_above": 1
+    }
+  },
+  {
+    "id": 2,
+    "animal": {
+      "id": "Joey",
+      "type": "dog"
+    },
+    "image": {
+      "id": "b874e6c1-d71e-4dab-99cf-ace2ef69788b",
+      "path": {
+        "s3_bucket": "shelter-art-foundation",
+        "s3_path": "dev/93523509-4c06-4fc2-aeae-b174074772b5.jpeg",
+        "http_url": "https://shelter-art-foundation.s3.amazonaws.com/dev/93523509-4c06-4fc2-aeae-b174074772b5.jpeg",
+        "s3_url": "s3://shelter-art-foundation/dev/93523509-4c06-4fc2-aeae-b174074772b5.jpeg"
+      }
+    },
+    "analysis": {
+      "overall_score": 3,
+      "good_prop": 1,
+      "bad_prop": 0,
+      "clean_background": 1,
+      "animal_fills_frame": 0,
+      "some_space_above": 1
+    }
+  },
+  {
+    "id": 3,
+    "animal": {
+      "id": "Speedy",
+      "type": "cat"
+    },
+    "image": {
+      "id": "b874e6c1-d71e-4dab-99cf-ace2ef69788b",
+      "path": {
+        "s3_bucket": "shelter-art-foundation",
+        "s3_path": "dev/93523509-4c06-4fc2-aeae-b174074772b5.jpeg",
+        "http_url": "https://shelter-art-foundation.s3.amazonaws.com/dev/93523509-4c06-4fc2-aeae-b174074772b5.jpeg",
+        "s3_url": "s3://shelter-art-foundation/dev/93523509-4c06-4fc2-aeae-b174074772b5.jpeg"
+      }
+    },
+    "analysis": {
+      "overall_score": 3,
+      "good_prop": 1,
+      "bad_prop": 0,
+      "clean_background": 1,
+      "animal_fills_frame": 0,
+      "some_space_above": 1
+    }
+  }]
+}

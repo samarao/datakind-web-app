@@ -1,0 +1,40 @@
+    <form class="p-6">
+      <p class="text-subheader--feedback">Please select the characteristics you found helpful.</p>
+
+      <div class="flex flex-col">
+        <div class="flex items-center space-x-2">
+          <Input @type="checkbox" @checked={{this.char1}} @name="char1" id="char1" />
+          <label for="char1">Flowers or basket are / are not present.</label>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <Input type="checkbox" @checked={{this.char2}} @name="char2" @id="char2" />
+          <label for="char2">Leash is / is not visible.</label>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <Input type="checkbox" @checked={{this.char3}} @name="char3" @id="char3" />
+          <label for="char3">Background has / has no distractions</label>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <Input type="checkbox" @checked={{this.char4}} @name="char4" @id="char4" />
+          <label for="char4">Animal fills / does not fill the frame.</label>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <Input type="checkbox" @checked={{this.char5}} @name="char5" @id="char5" />
+          <label for="char5">Some / no space above the head</label>
+        </div>
+      </div>
+
+      <div class="flex flex-col py-4">
+        <label for="addComments">Additional Comments:</label>
+        <Textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline" id="addComments" @value={{this.addComments}} />
+      </div>
+
+      <div class="space-x-2">
+        <button type="Submit" onclick={{action "submit"}} class="btn btn-primary btn-primary:hover btn-text">Submit</button>
+        <button onclick={{action "rollback"}} class="btn btn-secondary btn-text text-base">Cancel</button>
+      </div>
+    </form>

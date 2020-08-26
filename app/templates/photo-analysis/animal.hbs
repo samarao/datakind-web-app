@@ -1,0 +1,22 @@
+<div class="flex justify-center mt-20 space-x-24">
+  <img src={{model.http_url}} alt="" class="animal-photo--large" />
+  <div class="flex flex-col">
+    <div class="flex flex-col">
+      <span class="text--score-percentage text-center text-2xl">{{model.overallScore}}%</span>
+      <span class="text--overall-score text-center">Overall Score</span>
+    </div>
+    <div class="flex flex-col mt-4">
+
+      {{#each-in this.model.analysis as |characteristic score|}}
+        <PhotoCharacteristic @characteristic={{characteristic}} @score={{score}} />
+      {{/each-in}}
+      <LinkTo @route="documentation" class="link link-text mt-4 font-roboto">Learn more about the characteristics of a good photo.</LinkTo>
+    </div>
+    <div class="pt-4">
+      <FeedbackForm
+        @animalId={{this.model.animal.id}}
+        @imageId={{this.model.id}}
+      />
+    </div>
+  </div>
+</div>

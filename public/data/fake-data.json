@@ -1,0 +1,24 @@
+{
+  "statusCode": 200,
+  "body": {
+      "image": {
+          "id": "b874e6c1-d71e-4dab-99cf-ace2ef69788b",
+          "path": {
+              "s3_bucket": "shelter-art-foundation",
+              "s3_path": "dev/b874e6c1-d71e-4dab-99cf-ace2ef69788b.jpeg",
+              "http_url": "https://shelter-art-foundation.s3.amazonaws.com/dev/b874e6c1-d71e-4dab-99cf-ace2ef69788b.jpeg",
+              "s3_url": "s3://shelter-art-foundation-pet-images/dev/b874e6c1-d71e-4dab-99cf-ace2ef69788b.jpeg"
+          }
+      },
+      "analysis": {
+        "overall_score": 0.5,
+        "good_prop": 0.2,
+        "bad_prop": 0.9,
+        "clean_background": 0.8,
+        "animal_fills_frame": 0.7,
+        "some_space_above": 0.4,
+        "slight_profile": 0.6,
+        "eyes_looking": 0.7
+      }
+  }
+}
