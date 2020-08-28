@@ -5,16 +5,14 @@ const GOOD_CHARACTERISTIC_TITLES = {
   good_prop: 'Flowers or basket are present',
   bad_prop: 'Leash is not visible',
   clean_background: 'Background has no distractions',
-  animal_fills_frame: 'Animal fills the frame',
-  some_space_above:  'Some space above the head'
+  animal_fills_frame: 'Animal fills the frame'
 };
 
 const BAD_CHARACTERISTIC_TITLES = {
   good_prop: 'Flowers or basket are not present',
   bad_prop: 'Leash is visible',
   clean_background: 'Background is distracting',
-  animal_fills_frame: 'Animal does not fill the frame',
-  some_space_above:  'No space above the head'
+  animal_fills_frame: 'Animal does not fill the frame'
 };
 
 export default Component.extend({

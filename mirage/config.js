@@ -22,8 +22,7 @@ export default function() {
         "good_prop": 0,
         "bad_prop": 0,
         "clean_background": 1,
-        "animal_fills_frame": 1,
-        "some_space_above": 1
+        "animal_fills_frame": 1
       }
     }
   });
@@ -116,8 +115,7 @@ export default function() {
           "good_prop": 0,
           "bad_prop": 1,
           "clean_background": 1,
-          "animal_fills_frame": 0,
-          "some_space_above": 1
+          "animal_fills_frame": 0
         }
       },
       {
@@ -129,8 +127,7 @@ export default function() {
           "good_prop": 0,
           "bad_prop": 0,
           "clean_background": 0,
-          "animal_fills_frame": 0,
-          "some_space_above": 1
+          "animal_fills_frame": 0
         }
       }
     ]

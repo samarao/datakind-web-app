@@ -116,7 +116,7 @@
 
 .text--file-upload {
   font-family: Roboto;
-  @apply text-center text-gray-600 italic;
+  @apply text-center italic;
 }
 
 /* Photos */

@@ -18,6 +18,9 @@ export default Controller.extend({
   init() {
     this._super(...arguments);
     this.uploadTaskInstances = [];
+    if (sessionStorage.getItem("animalId")) {
+      sessionStorage.removeItem("animalId");
+    }
   },
 
   watchUploadTask: task(function * () {
@@ -34,6 +37,8 @@ export default Controller.extend({
       yield file.readAsDataURL().then((url) => {
         file.set('url', url)
       });
+
+      sessionStorage.setItem("animalId", this.get('animalId'));
   
       let animal = yield fetch('https://tzupxtpfmg.execute-api.us-east-1.amazonaws.com/Prod/score-image', {
         method: 'POST',

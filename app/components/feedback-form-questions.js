@@ -8,7 +8,6 @@ export default Component.extend({
       feedback.bad_prop = this.char2 ? 'helpful' : 'not helpful';
       feedback.clean_background = this.char3 ? 'helpful' : 'not helpful';
       feedback.animal_fills_frame = this.char4 ? 'helpful' : 'not helpful';
-      feedback.some_space_above = this.char5 ? 'helpful' : 'not helpful';
       feedback.additionalComments = this.additionalComments;
       this.submit(feedback);
     },

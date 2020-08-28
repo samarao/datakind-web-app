@@ -22,10 +22,10 @@ export default Component.extend({
     },
 
     submit(feedback) {
+      feedback.animalId = sessionStorage.getItem("animalId");
+      feedback.imageId = this.imageId;
       this.store.createRecord('feedback', {
-        animal_id: this.animalId,
-        image_id: this.imageId,
-        feedback: feedback
+        feedback: JSON.stringify(feedback)
       });
     },
 
