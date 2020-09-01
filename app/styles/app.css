@@ -102,7 +102,7 @@
 
 .text--score-percentage {
   font-family: Fjalla One;
-  @apply text-black text-center;
+  @apply text-center;
 }
 
 .text-feedback {
@@ -133,15 +133,12 @@
 }
 
 .animal-photo {
-  width: 300px;
-  height: 200;
-  background-size: cover;
+  @apply bg-cover shadow w-64;
 }
 
 .animal-photo--large {
   width: 450px;
-  height: 350px;
-  background-size: cover;
+  @apply bg-cover shadow;
 }
 
 .feedback-box {

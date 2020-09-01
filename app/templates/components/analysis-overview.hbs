@@ -1,13 +1,19 @@
 <h1 class="text-header--analysis">Choose a photo to learn more about its score:</h1>
 
-<div class="flex items-start space-x-20 pt-8 px-20 justify-center">
+<div class="flex items-end space-x-20 pt-8 px-20 justify-center">
 {{#each model as |animal|}}
   {{#each animal.images as |image|}}
     <LinkTo @route="photo-analysis.animal" @model={{image}}>
-      <img src={{image.http_url}} alt="" class="animal-photo" />
-      <div class="flex flex-col">
-        <span class="text--score-percentage text-lg">{{image.overallScore}}%</span>
-        <span class="text--overall-score text-base">Overall Score</span>
+      <div class="flex flex-col flex-auto justify-center">
+        <span class="flex justify-center">
+          <img src={{image.http_url}} alt="" class="animal-photo" />
+        </span>
+        <div class="flex flex-col py-4">
+          <span class="text--score-percentage text-3xl {{if (lte image.overallScore 70) "text--bad-characteristics" "text--good-characteristics"}}">
+            {{image.overallScore}}%
+          </span>
+          <span class="text--overall-score text-lg">Overall Score</span>
+        </div>
       </div>
     </LinkTo>
   {{/each}}
