@@ -64,7 +64,6 @@
     "ember-tether": "^2.0.0",
     "ember-truth-helpers": "^2.1.0",
     "jquery": "^3.5.1",
-    "postcss-scss": "^2.1.1",
     "tailwindcss": "^1.4.6"
   }
 }
