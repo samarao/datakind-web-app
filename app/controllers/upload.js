@@ -47,6 +47,7 @@ export default Controller.extend({
           image: file.url
         })
       }).then(response => response.json());
+      // Add a .catch for the error object
   
       let original = this.store.peekRecord('animal', animal.animal.id);
   
