@@ -41,7 +41,7 @@ export default Controller.extend({
 
       sessionStorage.setItem("animalId", this.get('animalId'));
   
-      let animal = yield fetch('https://3.81.209.36/score', {
+      let animal = yield fetch('http://3.81.209.36/score', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -78,7 +78,6 @@ export default Controller.extend({
     
         this.fileUploadCompleted++;
     
-        debugger
         if (this.fileQueue.files.length === this.fileUploadCompleted) {
           if (!this.fileTooBig && !this.tooManyFiles) {
           this.transitionToRoute('photo-analysis.index');

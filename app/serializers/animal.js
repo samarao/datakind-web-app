@@ -48,7 +48,6 @@ export default JSONSerializer.extend({
     payload = payload.body;
     delete payload.body;
 
-    debugger
       payload.images.forEach((image) => {
         image.overallScore = image.analysis.overall_score * 20;
         delete image.analysis.overall_score;
