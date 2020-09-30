@@ -9,23 +9,23 @@ export default JSONSerializer.extend({
   },
 
   extractId(model, hash) {
-    return hash.animal.id;
+    if (hash.body) {
+      return hash.body.animal.id;
+    } else {
+      return hash.animal.id;
+    }
   },
 
   normalize(modelClass, resourceHash) {
+    if (resourceHash.body) {
+      delete resourceHash.statusCode;
+      resourceHash = resourceHash.body;
+      delete resourceHash.body;
 
-    if (resourceHash.image && resourceHash.analysis) {
-      resourceHash.image.overallScore = resourceHash.analysis.overall_score * 20;
-      delete resourceHash.analysis.overall_score;
-  
-      resourceHash.image.analysis = resourceHash.analysis;
-      resourceHash.image.s3_url = resourceHash.image.path.s3_url;
-      resourceHash.image.http_url = resourceHash.image.path.http_url;
-      delete resourceHash.analysis;
-      delete resourceHash.image.path;
-  
-      resourceHash.images = [resourceHash.image];
-      delete resourceHash.image;
+      resourceHash.images.forEach((image) => {
+        image.overallScore = image.analysis.overall_score * 20;
+        delete image.analysis.overall_score;
+      });
     }
 
     return this._super(...arguments);
@@ -40,6 +40,20 @@ export default JSONSerializer.extend({
       return value;
     });
     return this._super(store, primaryModelClass, newPayload);
+
+  },
+
+  normalizeQueryRecordResponse(store, primaryModelClass, payload) {
+    delete payload.statusCode;
+    payload = payload.body;
+    delete payload.body;
+
+    debugger
+      payload.images.forEach((image) => {
+        image.overallScore = image.analysis.overall_score * 20;
+        delete image.analysis.overall_score;
+      });
+    return this._super(store, primaryModelClass, payload);
 
   }
 });

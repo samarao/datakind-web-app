@@ -1,9 +1,9 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
 
 export default JSONAPIAdapter.extend({
-  host: 'https://tzupxtpfmg.execute-api.us-east-1.amazonaws.com',
+  host: 'http://3.81.209.36',
   
   urlForCreateRecord() {
-    return `${this.host}/Prod/feedback`
+    return `${this.host}/feedback`
   }
 });

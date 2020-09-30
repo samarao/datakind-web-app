@@ -1,4 +1,4 @@
-    <form class="p-6">
+    <form class="p-6" {{action "submit" on="submit"}}>
       <p class="text-subheader--feedback">Please select the characteristics you found helpful.</p>
 
       <div class="flex flex-col">
@@ -29,7 +29,7 @@
       </div>
 
       <div class="space-x-2">
-        <button type="Submit" onclick={{action "submit"}} class="btn btn-primary btn-primary:hover btn-text">Submit</button>
+        <button type="submit" class="btn btn-primary btn-primary:hover btn-text">Submit</button>
         <button onclick={{action "rollback"}} class="btn btn-secondary btn-text text-base">Cancel</button>
       </div>
     </form>

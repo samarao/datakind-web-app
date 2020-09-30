@@ -6,6 +6,7 @@ export default Component.extend({
 
   showingFeedbackModal: false,
   generalFeedbackScore: '',
+  showsThanks: false,
 
   actions: {
     sendPositiveFeedback() {
@@ -14,6 +15,8 @@ export default Component.extend({
         image_id: this.imageId,
         feedback: 'Positive'
       });
+
+      this.toggleProperty('showsThanks');
     },
 
     toggleFeedbackModal() {
@@ -27,6 +30,8 @@ export default Component.extend({
       this.store.createRecord('feedback', {
         feedback: JSON.stringify(feedback)
       });
+      this.toggleProperty('showsThanks');
+      this.toggleProperty('showingFeedbackModal');
     },
 
     rollback() {

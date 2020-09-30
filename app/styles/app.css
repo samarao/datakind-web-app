@@ -131,11 +131,14 @@
 }
 
 .animal-photo {
+  width: 200px;
+  height: 200px;
   @apply bg-cover shadow w-64;
 }
 
 .animal-photo--large {
   width: 450px;
+  height: 450px;
   @apply bg-cover shadow;
 }
 

@@ -19,8 +19,8 @@ export default function() {
       },
       "analysis": {
         "overall_score": 4,
-        "good_prop": 0,
-        "bad_prop": 0,
+        "good_prop": -1,
+        "bad_prop": -1,
         "clean_background": 1,
         "animal_fills_frame": 1
       }
@@ -100,7 +100,7 @@ export default function() {
 
 //   /*
   this.get('/Prod/list', () => {
-      return [{
+      return {
       "animal": {
         "id": 1,
         "type": "dog"
@@ -112,10 +112,10 @@ export default function() {
         "s3_url": "s3://shelter-art-foundation/dev/93523509-4c06-4fc2-aeae-b174074772b5.jpeg",
         "analysis": {
           "overall_score": 2,
-          "good_prop": 0,
+          "good_prop": -1,
           "bad_prop": 1,
           "clean_background": 1,
-          "animal_fills_frame": 0
+          "animal_fills_frame": -1
         }
       },
       {
@@ -124,14 +124,14 @@ export default function() {
         "s3_url": "s3://shelter-art-foundation/dev/93523509-4c06-4fc2-aeae-b174074772b5.jpeg",
         "analysis": {
           "overall_score": 1,
-          "good_prop": 0,
-          "bad_prop": 0,
-          "clean_background": 0,
-          "animal_fills_frame": 0
+          "good_prop": -1,
+          "bad_prop": -1,
+          "clean_background": -1,
+          "animal_fills_frame": -1
         }
       }
     ]
-  }];
+  };
  });
 
 //   // These comments are here to help you get started. Feel free to delete them.

@@ -5,7 +5,6 @@ import { inject as service } from '@ember/service';
 
 export default Controller.extend({
   fileQueue: service(),
-  animalId: undefined,
 
   formInvalid: computed('animalId', function() {
     return !this.get('animalId');
@@ -21,6 +20,8 @@ export default Controller.extend({
     if (sessionStorage.getItem("animalId")) {
       sessionStorage.removeItem("animalId");
     }
+    this.set('apiError', false);
+    this.set('animalId', undefined);
   },
 
   watchUploadTask: task(function * () {
@@ -40,37 +41,48 @@ export default Controller.extend({
 
       sessionStorage.setItem("animalId", this.get('animalId'));
   
-      let animal = yield fetch('https://tzupxtpfmg.execute-api.us-east-1.amazonaws.com/Prod/score-image', {
+      let animal = yield fetch('http://3.81.209.36/score', {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
-          animalId: this.get('animalId'),
-          image: file.url
+          animal_id: this.get('animalId'),
+          images: [file.url]
         })
-      }).then(response => response.json());
-      // Add a .catch for the error object
+      }).then(response => response.json()).catch(() => {
+        this.set('apiError', true);
+      });
+
+      if (!this.apiError) {
+        let original = this.store.peekRecord('animal', animal.body.animal.id);
   
-      let original = this.store.peekRecord('animal', animal.animal.id);
-  
-      if (original) {
-        animal.image.overallScore = animal.analysis.overall_score * 20;
-        delete animal.analysis.overall_score;
+        if (original) {
+          delete animal.statusCode;
+          animal = animal.body;
+          delete animal.body
+
+          animal.image.overallScore = animal.analysis.overall_score * 20;
+          delete animal.analysis.overall_score;
+      
+          animal.image.analysis = animal.analysis;
+          animal.image.s3_url = animal.image.path.s3_url;
+          animal.image.http_url = animal.image.path.http_url;
+          delete animal.analysis;
+          delete animal.image.path;
     
-        animal.image.analysis = animal.analysis;
-        animal.image.s3_url = animal.image.path.s3_url;
-        animal.image.http_url = animal.image.path.http_url;
-        delete animal.analysis;
-        delete animal.image.path;
-  
-        original.images.push(animal.image);
-      } else {
-        this.store.push(this.store.normalize('animal', animal));
-      }
-  
-      this.fileUploadCompleted++;
-  
-      if (this.fileQueue.files.length === this.fileUploadCompleted) {
-        if (!this.fileTooBig && !this.tooManyFiles) {
-        this.transitionToRoute('photo-analysis.index');
+          original.images.push(animal.image);
+        } else {
+          this.store.push(this.store.normalize('animal', animal));
+        }
+    
+        this.fileUploadCompleted++;
+    
+        debugger
+        if (this.fileQueue.files.length === this.fileUploadCompleted) {
+          if (!this.fileTooBig && !this.tooManyFiles) {
+          this.transitionToRoute('photo-analysis.index');
+          }
         }
       }
     } else {
