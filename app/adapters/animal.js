@@ -1,7 +1,7 @@
 import RESTAdapter from '@ember-data/adapter/rest';
 
 export default RESTAdapter.extend({
-  host: 'http://3.81.209.36',
+  host: 'https://3.81.209.36',
 
   urlForCreateRecord() {
     return `${this.host}/score`;
