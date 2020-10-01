@@ -9,7 +9,6 @@
       {{#each-in this.model.analysis as |characteristic score|}}
         <PhotoCharacteristic @characteristic={{characteristic}} @score={{score}} />
       {{/each-in}}
-      <LinkTo @route="documentation" class="link link-text mt-4 font-roboto">Learn more about the characteristics of a good photo.</LinkTo>
     </div>
     <div class="pt-4">
       <FeedbackForm

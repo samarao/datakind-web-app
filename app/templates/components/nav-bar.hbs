@@ -1,13 +1,10 @@
-<nav class="flex items-start justify-between">
+<nav class="flex items-start justify-between px-8">
   <a href="https://www.shelterartfoundation.org/" target="_blank" rel="noopener noreferral">
     <img src="../assets/images/Shelter-Logos-BW-Fcopy.png" class="logo w-1/4 mt-5 ml-5" alt="" />
   </a>
   <div class="flex self-center w-3/4 flex-grow items-center justify-end space-x-16 mt-5 mr-5">
-    <LinkTo @route="documentation" class="text-header--nav">
-      Documentation
-    </LinkTo>
-    <LinkTo @route="upload" class="btn btn-primary btn-primary:hover flex items-center justify-center">
-      <span class="btn-text text-xl">Upload</span>
+    <LinkTo @route="upload" class="btn btn-primary btn-primary:hover flex items-center justify-center" @preventDefault={{false}}>
+      <span class="btn-text text-lg">Upload a Photo</span>
     </LinkTo>
   </div>
 </nav>
