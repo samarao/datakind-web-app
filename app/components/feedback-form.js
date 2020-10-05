@@ -25,7 +25,7 @@ export default Component.extend({
     },
 
     submit(feedback) {
-      feedback.animalId = sessionStorage.getItem("animalId");
+      feedback.animalId = localStorage.getItem("animalId");
       feedback.imageId = this.imageId;
       this.store.createRecord('feedback', {
         feedback: JSON.stringify(feedback)

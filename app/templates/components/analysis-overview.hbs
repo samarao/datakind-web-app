@@ -1,5 +1,6 @@
 <h1 class="text-header--analysis">Choose a photo to learn more about its score:</h1>
 
+{{#if model.images}}
 <div class="flex items-end space-x-20 pt-8 px-20 justify-center">
   {{#each model.images as |image|}}
     <LinkTo @route="photo-analysis.animal" @model={{image}}>
@@ -17,3 +18,8 @@
     </LinkTo>
   {{/each}}
 </div>
+{{else}}
+  <div class="text--file-upload text-gray-600 py-8">
+    Sorry, no photos are available.
+  </div>
+{{/if}}

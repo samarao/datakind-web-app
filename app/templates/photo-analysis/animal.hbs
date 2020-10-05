@@ -1,3 +1,4 @@
+{{#if model.http_url}}
 <div class="flex justify-center mt-16 space-x-24">
   <div class="animal-photo--large">
     <img src={{model.http_url}} alt="" />
@@ -19,3 +20,8 @@
     </div>
   </div>
 </div>
+{{else}}
+  <div class="text--file-upload text-gray-600 py-8">
+    Sorry, we cannot find the requested image.
+  </div>
+{{/if}}
