@@ -17,8 +17,8 @@ export default Controller.extend({
   init() {
     this._super(...arguments);
     this.uploadTaskInstances = [];
-    if (sessionStorage.getItem("animalId")) {
-      sessionStorage.removeItem("animalId");
+    if (localStorage.getItem("animalId")) {
+      localStorage.removeItem("animalId");
     }
     this.set('apiError', false);
     this.set('animalId', undefined);
@@ -39,7 +39,7 @@ export default Controller.extend({
         file.set('url', url)
       });
 
-      sessionStorage.setItem("animalId", this.get('animalId'));
+      localStorage.setItem("animalId", this.get('animalId'));
   
       let animal = yield fetch('http://3.81.209.36/score', {
         method: 'POST',
@@ -57,21 +57,16 @@ export default Controller.extend({
       if (!this.apiError) {
         let original = this.store.peekRecord('animal', animal.body.animal.id);
   
-        if (original) {
+        if (original && original.images) {
           delete animal.statusCode;
           animal = animal.body;
           delete animal.body
-
-          animal.image.overallScore = animal.analysis.overall_score * 20;
-          delete animal.analysis.overall_score;
       
-          animal.image.analysis = animal.analysis;
-          animal.image.s3_url = animal.image.path.s3_url;
-          animal.image.http_url = animal.image.path.http_url;
-          delete animal.analysis;
-          delete animal.image.path;
-    
-          original.images.push(animal.image);
+          animal.images.forEach((image) => {
+            image.overallScore = image.analysis.overall_score * 20;
+            delete image.analysis.overall_score;
+            original.images.push(image);
+          });
         } else {
           this.store.push(this.store.normalize('animal', animal));
         }
