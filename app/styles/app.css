@@ -130,16 +130,22 @@
   border: 0px;
 }
 
-.animal-photo {
-  width: 200px;
-  height: 200px;
-  @apply bg-cover shadow w-64;
-}
-
 .animal-photo--large {
   width: 450px;
   height: 450px;
-  @apply bg-cover shadow;
+}
+
+.animal-photo {
+  width: 200px;
+  height: 120px;
+  @apply w-64;
+}
+
+/* resize images */
+.container img {
+  width: 100%;
+  height: auto;
+  @apply shadow;
 }
 
 .feedback-box {

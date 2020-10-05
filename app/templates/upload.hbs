@@ -1,5 +1,5 @@
 <div class="flex justify-center mt-4">
-<div class="flex flex-col">
+<div class="flex flex-col w-1/4">
   <div class="flex flex-col mb-4 flex-auto">
     {{#if this.apiError}}
       <div class="flex flex-col text-center py-4">
@@ -25,9 +25,16 @@
     <FileUpload @name="photos"
                 @accept="image/jpeg"
                 @multiple={{true}}
+                @disabled={{watchUploadTask.isRunning}}
                 @onfileadd={{action "uploadImage"}}>
-        <a class="btn btn-primary btn-primary:hover flex flex-auto justify-center btn-text">
-          <span class="text-center text-base">Add an Image</span>
+        <a class="btn flex flex-auto justify-center btn-text {{if watchUploadTask.isRunning 'btn-disabled' 'btn-primary btn-primary:hover'}}">
+          <span class="text-center text-base">
+            {{#if watchUploadTask.isRunning}}
+              Analyzing...
+            {{else}}
+              Add an Image
+            {{/if}}
+          </span>
         </a>
     </FileUpload>
   {{/if}}

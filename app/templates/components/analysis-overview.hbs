@@ -4,8 +4,8 @@
   {{#each model.images as |image|}}
     <LinkTo @route="photo-analysis.animal" @model={{image}}>
       <div class="flex flex-col flex-auto justify-center">
-        <span class="flex justify-center">
-          <img src={{image.http_url}} alt="" class="animal-photo" />
+        <span class="flex justify-center animal-photo">
+          <img src={{image.http_url}} alt="" />
         </span>
         <div class="flex flex-col py-4">
           <span class="text--score-percentage text-3xl {{if (lte image.overallScore 70) "text--bad-characteristics" "text--good-characteristics"}}">
