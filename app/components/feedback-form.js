@@ -25,11 +25,11 @@ export default Component.extend({
     },
 
     submit(feedback) {
-      feedback.animalId = localStorage.getItem("animalId");
-      feedback.imageId = this.imageId;
       this.store.createRecord('feedback', {
+        animal_id: localStorage.getItem("animalId"),
+        image_id: this.imageId,
         feedback: JSON.stringify(feedback)
-      });
+      }).save();
       this.toggleProperty('showsThanks');
       this.toggleProperty('showingFeedbackModal');
     },
