@@ -23,7 +23,7 @@ export default JSONSerializer.extend({
       delete resourceHash.body;
 
       resourceHash.images.forEach((image) => {
-        image.overallScore = image.analysis.overall_score * 20;
+        image.overallScore = (image.analysis.overall_score + 6) * 10;
         delete image.analysis.overall_score;
       });
     }
@@ -34,7 +34,7 @@ export default JSONSerializer.extend({
   normalizeFindAllResponse(store, primaryModelClass, payload) {
     const newPayload = payload.map((value) => {
       value.images.forEach((image) => {
-        image.overallScore = image.analysis.overall_score * 20;
+        image.overallScore = (image.analysis.overall_score + 6) * 10;
         delete image.analysis.overall_score;
       });
       return value;
@@ -49,7 +49,7 @@ export default JSONSerializer.extend({
     delete payload.body;
 
       payload.images.forEach((image) => {
-        image.overallScore = image.analysis.overall_score * 20;
+        image.overallScore = (image.analysis.overall_score + 6) * 10;
         delete image.analysis.overall_score;
       });
     return this._super(store, primaryModelClass, payload);

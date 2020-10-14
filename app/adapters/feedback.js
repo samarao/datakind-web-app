@@ -1,7 +1,7 @@
-import JSONAPIAdapter from '@ember-data/adapter/json-api';
+import RESTAdapter from '@ember-data/adapter/rest';
 
-export default JSONAPIAdapter.extend({
-  host: 'http://3.81.209.36',
+export default RESTAdapter.extend({
+  host: 'https://k0ml8p1v7h.execute-api.us-east-1.amazonaws.com',
   
   urlForCreateRecord() {
     return `${this.host}/feedback`

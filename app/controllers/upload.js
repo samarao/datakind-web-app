@@ -41,7 +41,7 @@ export default Controller.extend({
 
       localStorage.setItem("animalId", this.get('animalId'));
   
-      let animal = yield fetch('http://3.81.209.36/score', {
+      let animal = yield fetch('https://k0ml8p1v7h.execute-api.us-east-1.amazonaws.com/prod/score', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ export default Controller.extend({
           delete animal.body
       
           animal.images.forEach((image) => {
-            image.overallScore = image.analysis.overall_score * 20;
+            image.overallScore = (image.analysis.overall_score + 6) * 10;
             delete image.analysis.overall_score;
             original.images.push(image);
           });

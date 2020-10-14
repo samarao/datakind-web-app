@@ -25,11 +25,17 @@ export default Component.extend({
     },
 
     submit(feedback) {
-      this.store.createRecord('feedback', {
-        animal_id: localStorage.getItem("animalId"),
-        image_id: this.imageId,
-        feedback: JSON.stringify(feedback)
-      }).save();
+      fetch('https://k0ml8p1v7h.execute-api.us-east-1.amazonaws.com/prod/feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          animal_id: localStorage.getItem("animalId"),
+          image_id: this.imageId,
+          feedback: JSON.stringify(feedback)
+        })
+      });
       this.toggleProperty('showsThanks');
       this.toggleProperty('showingFeedbackModal');
     },
